@@ -36,29 +36,31 @@
         <div class="tracker-cards text-neutral grid grid-cols-3 gap-5 mt-5">
             <div class="card bg-white p-5">
                 <h4 class="text-sm font-medium">Total</h4>
-                <span class="text-2xl font-bold">8</span>
+                <span id="total-count" class="text-2xl font-bold">0</span>
             </div>
             <div class="card bg-white p-5">
                 <h4 class="text-sm font-medium">Interview</h4>
-                <span class="text-2xl font-bold text-accent">0</span>
+                <span id="interview-count" class="text-2xl font-bold text-accent">0</span>
             </div>
             <div class="card bg-white p-5">
                 <h4 class="text-sm font-medium">Rejected</h4>
-                <span class="text-2xl font-bold text-error">0</span>
+                <span id="rejected-count" class="text-2xl font-bold text-error">0</span>
             </div>
         </div>
         <div class="border-b-2 mt-5 border-gray-200"></div>
     </header>
-    <section style="max-width: 1110px; margin: 0 auto;">
+    <section id="main-section" style="max-width: 1110px; margin: 0 auto;">
         <div class="count-Category flex justify-between mt-7">
             <h3 class="text-xl font-bold">Available Jobs</h3>
             <p class="text-lg font-medium text-[#64748B]"><span>8</span> jobs</p>
         </div>
         <div class="jobs-btn flex gap-2 mt-6">
-            <button id="all-filter-btn" class="btn bg-white  px-10 text-[#64748B] rounded-lg text-center">All</button>
-            <button id="interview-filter-btn" class="btn bg-white px-5 text-[#64748B] rounded-lg text-center">Interview</button>
-            <button id="rejected-filter-btn" class="btn bg-white px-5 text-[#64748B] rounded-lg text-center">Rejected</button>
+            <button onclick="clickedBtn('all-filter-btn')" id="all-filter-btn" class="btn bg-primary  px-10 text-white rounded-lg text-center">All</button>
+            <button onclick="clickedBtn('interview-filter-btn')" id="interview-filter-btn" class="btn bg-white px-5 text-[#64748B] rounded-lg text-center">Interview</button>
+            <button onclick="clickedBtn('rejected-filter-btn')" id="rejected-filter-btn" class="btn bg-white px-5 text-[#64748B] rounded-lg text-center">Rejected</button>
         </div>
+        <div class="interview-filtered-section hidden"></div>
+        <div class="rejected-filtered-section hidden"></div>
         <div class="job-cards mt-4 space-y-5">
             <div class="job-card flex justify-between bg-white p-6 rounded-lg">
                 <div class="card-left">
@@ -69,12 +71,145 @@
                     <p class="job-overview text-sm mt-2">Build cross-platform mobile applications using React Native. Work on
                         products used by millions of users worldwide.</p>
                     <div class="card-btn mt-5 flex gap-2">
-                        <button class="interview-btn btn border-accent text-accent">Interview</button>
-                        <button class="rejected-btn btn border-error text-error">Rejected</button>
+                        <button class="card-btn btn border-accent text-accent">Interview</button>
+                        <button class="card-card-btn btn border-error text-error">Rejected</button>
                     </div>
                 </div>
                 <div class="delete-icon border rounded-full w-8 h-8 p-2 border-gray-300">
-                    <button>
+                    <button class="deleteIcon">
+                        <img class="w-6" src="./images/trash_bin_icon-icons.com_67981.png" alt="">
+                    </button>
+                </div>
+            </div>
+            <div class="job-card flex justify-between bg-white p-6 rounded-lg">
+                <div class="card-left">
+                    <h3 class="job-title text-[18px] font-semibold">DataViz Solutions</h3>
+                    <p class="job-designation text-[#64748B]">React Native Developer</p>
+                    <p class="job-details text-[#64748B] text-sm mt-5">Remote • Full-time • $130,000 - $175,000</p>
+                    <span class="job-badge badge bg-[#EEF4FF] px-3 py-4 text-sm font-medium mt-5">NOT APPLIED</span>
+                    <p class="job-overview text-sm mt-2">Build cross-platform mobile applications using React Native. Work on
+                        products used by millions of users worldwide.</p>
+                    <div class="card-btn mt-5 flex gap-2">
+                        <button class="card-btn btn border-accent text-accent">Interview</button>
+                        <button class="card-btn btn border-error text-error">Rejected</button>
+                    </div>
+                </div>
+                <div class="delete-icon border rounded-full w-8 h-8 p-2 border-gray-300">
+                    <button class="deleteIcon">
+                        <img class="w-6" src="./images/trash_bin_icon-icons.com_67981.png" alt="">
+                    </button>
+                </div>
+            </div>
+            <div class="job-card flex justify-between bg-white p-6 rounded-lg">
+                <div class="card-left">
+                    <h3 class="job-title text-[18px] font-semibold">WebFlow Agency</h3>
+                    <p class="job-designation text-[#64748B]">React Native Developer</p>
+                    <p class="job-details text-[#64748B] text-sm mt-5">Remote • Full-time • $130,000 - $175,000</p>
+                    <span class="job-badge badge bg-[#EEF4FF] px-3 py-4 text-sm font-medium mt-5">NOT APPLIED</span>
+                    <p class="job-overview text-sm mt-2">Build cross-platform mobile applications using React Native. Work on
+                        products used by millions of users worldwide.</p>
+                    <div class="card-btn mt-5 flex gap-2">
+                        <button class="card-btn btn border-accent text-accent">Interview</button>
+                        <button class="card-btn btn border-error text-error">Rejected</button>
+                    </div>
+                </div>
+                <div class="delete-icon border rounded-full w-8 h-8 p-2 border-gray-300">
+                    <button class="deleteIcon">
+                        <img class="w-6" src="./images/trash_bin_icon-icons.com_67981.png" alt="">
+                    </button>
+                </div>
+            </div>
+            <div class="job-card flex justify-between bg-white p-6 rounded-lg">
+                <div class="card-left">
+                    <h3 class="job-title text-[18px] font-semibold">CloudFirst Inc</h3>
+                    <p class="job-designation text-[#64748B]">React Native Developer</p>
+                    <p class="job-details text-[#64748B] text-sm mt-5">Remote • Full-time • $130,000 - $175,000</p>
+                    <span class="job-badge badge bg-[#EEF4FF] px-3 py-4 text-sm font-medium mt-5">NOT APPLIED</span>
+                    <p class="job-overview text-sm mt-2">Build cross-platform mobile applications using React Native. Work on
+                        products used by millions of users worldwide.</p>
+                    <div class="card-btn mt-5 flex gap-2">
+                        <button class="card-btn btn border-accent text-accent">Interview</button>
+                        <button class="card-btn btn border-error text-error">Rejected</button>
+                    </div>
+                </div>
+                <div class="delete-icon border rounded-full w-8 h-8 p-2 border-gray-300">
+                    <button class="deleteIcon">
+                        <img class="w-6" src="./images/trash_bin_icon-icons.com_67981.png" alt="">
+                    </button>
+                </div>
+            </div>
+            <div class="job-card flex justify-between bg-white p-6 rounded-lg">
+                <div class="card-left">
+                    <h3 class="job-title text-[18px] font-semibold">Innovation Labs</h3>
+                    <p class="job-designation text-[#64748B]">React Native Developer</p>
+                    <p class="job-details text-[#64748B] text-sm mt-5">Remote • Full-time • $130,000 - $175,000</p>
+                    <span class="job-badge badge bg-[#EEF4FF] px-3 py-4 text-sm font-medium mt-5">NOT APPLIED</span>
+                    <p class="job-overview text-sm mt-2">Build cross-platform mobile applications using React Native. Work on
+                        products used by millions of users worldwide.</p>
+                    <div class="card-btn mt-5 flex gap-2">
+                        <button class="card-btn btn border-accent text-accent">Interview</button>
+                        <button class="card-btn btn border-error text-error">Rejected</button>
+                    </div>
+                </div>
+                <div class="delete-icon border rounded-full w-8 h-8 p-2 border-gray-300">
+                    <button class="deleteIcon">
+                        <img class="w-6" src="./images/trash_bin_icon-icons.com_67981.png" alt="">
+                    </button>
+                </div>
+            </div>
+            <div class="job-card flex justify-between bg-white p-6 rounded-lg">
+                <div class="card-left">
+                    <h3 class="job-title text-[18px] font-semibold">MegaCorp Solutions</h3>
+                    <p class="job-designation text-[#64748B]">React Native Developer</p>
+                    <p class="job-details text-[#64748B] text-sm mt-5">Remote • Full-time • $130,000 - $175,000</p>
+                    <span class="job-badge badge bg-[#EEF4FF] px-3 py-4 text-sm font-medium mt-5">NOT APPLIED</span>
+                    <p class="job-overview text-sm mt-2">Build cross-platform mobile applications using React Native. Work on
+                        products used by millions of users worldwide.</p>
+                    <div class="card-btn mt-5 flex gap-2">
+                        <button class="card-btn btn border-accent text-accent">Interview</button>
+                        <button class="card-btn btn border-error text-error">Rejected</button>
+                    </div>
+                </div>
+                <div class="delete-icon border rounded-full w-8 h-8 p-2 border-gray-300">
+                    <button class="deleteIcon">
+                        <img class="w-6" src="./images/trash_bin_icon-icons.com_67981.png" alt="">
+                    </button>
+                </div>
+            </div>
+            <div class="job-card flex justify-between bg-white p-6 rounded-lg">
+                <div class="card-left">
+                    <h3 class="job-title text-[18px] font-semibold">StartupXYZ</h3>
+                    <p class="job-designation text-[#64748B]">React Native Developer</p>
+                    <p class="job-details text-[#64748B] text-sm mt-5">Remote • Full-time • $130,000 - $175,000</p>
+                    <span class="job-badge badge bg-[#EEF4FF] px-3 py-4 text-sm font-medium mt-5">NOT APPLIED</span>
+                    <p class="job-overview text-sm mt-2">Build cross-platform mobile applications using React Native. Work on
+                        products used by millions of users worldwide.</p>
+                    <div class="card-btn mt-5 flex gap-2">
+                        <button class="card-btn btn border-accent text-accent">Interview</button>
+                        <button class="card-btn btn border-error text-error">Rejected</button>
+                    </div>
+                </div>
+                <div class="delete-icon border rounded-full w-8 h-8 p-2 border-gray-300">
+                    <button class="deleteIcon">
+                        <img class="w-6" src="./images/trash_bin_icon-icons.com_67981.png" alt="">
+                    </button>
+                </div>
+            </div>
+            <div class="job-card flex justify-between bg-white p-6 rounded-lg">
+                <div class="card-left">
+                    <h3 class="job-title text-[18px] font-semibold">TechCorp Industries</h3>
+                    <p class="job-designation text-[#64748B]">React Native Developer</p>
+                    <p class="job-details text-[#64748B] text-sm mt-5">Remote • Full-time • $130,000 - $175,000</p>
+                    <span class="job-badge badge bg-[#EEF4FF] px-3 py-4 text-sm font-medium mt-5">NOT APPLIED</span>
+                    <p class="job-overview text-sm mt-2">Build cross-platform mobile applications using React Native. Work on
+                        products used by millions of users worldwide.</p>
+                    <div class="card-btn mt-5 flex gap-2">
+                        <button class="card-btn btn border-accent text-accent">Interview</button>
+                        <button class="card-btn btn border-error text-error">Rejected</button>
+                    </div>
+                </div>
+                <div class="delete-icon border rounded-full w-8 h-8 p-2 border-gray-300">
+                    <button class="deleteIcon">
                         <img class="w-6" src="./images/trash_bin_icon-icons.com_67981.png" alt="">
                     </button>
                 </div>

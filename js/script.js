@@ -197,9 +197,9 @@ function renderInterviewSection() {
                         <button class="card-card-btn btn border-error text-error">Rejected</button>
                     </div>
                 </div>
-                <div class="delete-icon border rounded-full w-8 h-8 p-2 border-gray-300">
+                <div class="delete-icon md:border rounded-full w-15 h-8 md:w-8 md:h-8 md:p-2 border-gray-300">
                     <button class="deleteIcon">
-                        <img class="w-6" src="./images/trash_bin_icon-icons.com_67981.png" alt="">
+                        <img class="w-full" src="./images/trash_bin_icon-icons.com_67981.png" alt="">
                     </button>
                 </div>
             `;
@@ -274,9 +274,9 @@ function renderRejectedSection() {
                         <button class="card-card-btn btn border-error text-error">Rejected</button>
                     </div>
                 </div>
-                <div class="delete-icon border rounded-full w-8 h-8 p-2 border-gray-300">
+                <div class="delete-icon md:border rounded-full w-15 h-8 md:w-8 md:h-8 md:p-2 border-gray-300">
                     <button class="deleteIcon">
-                        <img class="w-6" src="./images/trash_bin_icon-icons.com_67981.png" alt="">
+                        <img class="w-full" src="./images/trash_bin_icon-icons.com_67981.png" alt="">
                     </button>
                 </div>
             `;
